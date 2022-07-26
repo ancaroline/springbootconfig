@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import javax.crypto.spec.PSource;
+
 @Configuration
 @ConfigurationProperties("spring.datasource")
 public class DBConfiguration {
@@ -22,5 +24,14 @@ public class DBConfiguration {
         System.out.println(driverClassName);
         System.out.println(url);
         return "DB Connection to H2_TEST - Test instance";
+    }
+
+    @Profile("prod")
+    @Bean
+    public String productionDatabaseConnection () {
+        System.out.println("DB connection for Production - MySQL");
+        System.out.println(driverClassName);
+        System.out.println(url);
+        return "DB Connection to MYSQL_PROD - Production instance";
     }
 }
