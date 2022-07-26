@@ -1,5 +1,7 @@
 package com.digitalinnovationone.springbootconfig.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +11,8 @@ import javax.crypto.spec.PSource;
 
 @Configuration
 @ConfigurationProperties("spring.datasource")
+@Getter
+@Setter
 public class DBConfiguration {
 
     private String driverClassName;
